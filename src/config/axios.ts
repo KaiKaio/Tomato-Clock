@@ -1,4 +1,5 @@
 import axios from 'axios';
+import history from './history'
 
 // 您的 app_id 是：zUh9Fr63HwgjWEP9yuEbQjEd
 // 您的 app_secret 是：Pqhvjon1JEmDNhieWkKJ9KDZ
@@ -34,7 +35,10 @@ instance.interceptors.response.use((response) => {
 	}
 	return response;
 },  (error) => {
-	// Do something with response error
+	if(error.response.status === 401){
+        console.log('重定向');
+        history.push('./login')
+    }
 	return Promise.reject(error);
 });
 

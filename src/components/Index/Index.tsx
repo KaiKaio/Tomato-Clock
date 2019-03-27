@@ -1,16 +1,35 @@
 import * as React from 'react';
 import { Button } from 'antd'
+import axios from 'src/config/axios'
 
 interface IRouter {
     history: any;
 }
 
-class Component extends React.Component<IRouter> {
+interface IIndexState {
+    user: any
+}
+
+class Index extends React.Component<IRouter,IIndexState> {
     constructor(props: any){
         super(props)
+        this.state = {
+            user: {}
+        }
     }
 
-    login = ()=> {
+    async componentWillMount(){
+        await this.getMe()
+    }
+
+    getMe = async () => {
+        // GET https://gp-server.hunger-valley.com/me
+        const response = await axios.get('me')
+        this.setState({user: response.data})
+    }
+
+    logout = ()=> {
+        localStorage.setItem('x-token', '')
         this.props.history.push('/login')
     }
 
@@ -18,11 +37,11 @@ class Component extends React.Component<IRouter> {
     render(){
         return(
         <div className="Component">
-            Index
-            <Button onClick={this.login}>登录</Button>
+            <p>欢迎，{this.state.user && this.state.user.account}</p>
+            <Button onClick={this.logout}>注销</Button>
         </div>
         )
   }
 }
 
-export default Component;
+export default Index;
