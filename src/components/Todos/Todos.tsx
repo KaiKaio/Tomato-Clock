@@ -51,8 +51,8 @@ class Todos extends React.Component<any> {
                     }
                     {
                         this.completedTodos.map((t)=>
-                                <TodoItem key={t.id} {...t}/>
-                            )
+                            <TodoItem key={t.id} {...t}/>
+                        )
                     }
                 </div>
             </div>

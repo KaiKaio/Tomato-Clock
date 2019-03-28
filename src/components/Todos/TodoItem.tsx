@@ -46,6 +46,12 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
         }
     }
 
+    clickSave = () => {
+        if(this.state.ediText !== '') {
+            this.updateTodo({description: this.state.ediText})
+        }
+    }
+
     public render() {
         const Editing = (
             <div className="editing">
@@ -54,7 +60,7 @@ class TodoItem extends React.Component<ITodoItemProps, ITodoItemState> {
                     onKeyUp={this.onKeyUp}
                 />
                 <div className="iconWrapper">
-                    <Icon type="enter"/>
+                    <Icon type="enter" onClick={this.clickSave}/>
                     <Icon type="delete" theme="filled"
                         onClick={(e)=>this.updateTodo({deleted:true})}/>
                 </div>
