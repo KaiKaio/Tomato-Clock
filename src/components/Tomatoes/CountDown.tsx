@@ -40,6 +40,10 @@ class CountDown extends React.Component<ICountDownProps,ICountDownState> {
         }, 1000)
     }
 
+    componentWillUnmount(){
+		clearInterval(timerId)
+	}
+
     public render() {
         const percent = 1 - this.state.countDown/this.props.duration
         return (
