@@ -2,6 +2,7 @@ import * as React from 'react';
 import { Dropdown, Icon, Menu } from 'antd'
 import axios from 'src/config/axios'
 import Todos from 'src/components/Todos/Todos'
+import Tomatoes from 'src/components/Tomatoes/Tomatoes'
 import history from 'src/config/history'
 
 import './Home.scss'
@@ -57,6 +58,7 @@ class Home extends React.Component<IRouter,IHomeState> {
                 </Dropdown>
             </header>
             <main>
+                <Tomatoes />
                 <Todos />
             </main>
         </div>
