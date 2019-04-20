@@ -37,7 +37,7 @@ class SignUp extends React.Component<any, ISignUpState> {
     const  { account, password, passwordConformation} = this.state;
     try{
       await axios.post('sign_up/user', {
-        account, // account: account
+        account,
 				password,
 				password_confirmation:passwordConformation
       })
@@ -46,10 +46,6 @@ class SignUp extends React.Component<any, ISignUpState> {
       throw new Error(e)
     }
   }
-
-  // linkTo = () => {
-  //   this.props.history.push('login')
-  // }
 
   public render(){
     const { account, password, passwordConformation} = this.state

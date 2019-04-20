@@ -8,6 +8,7 @@ import { initTodos } from "../../redux/actions/todos";
 import { initTomatoes } from "../../redux/actions/tomatoes";
 import Statistics from 'src/components/Statistics/Statistics'
 import history from 'src/config/history'
+import logo from './Logo.png'
 
 import './Home.scss'
 
@@ -44,7 +45,7 @@ class Home extends React.Component<any, IHomeState> {
     getTodos = async () => {
 		try{
 			const response = await axios.get('todos')
-			const todos = response.data.resources.map(t=>Object.assign({},t,{editing: false}))
+            const todos = response.data.resources.map(t=>Object.assign({},t,{editing: false}))
 			this.props.initTodos(todos)
 		}catch (e) {
 			throw new Error(e)
@@ -70,9 +71,10 @@ class Home extends React.Component<any, IHomeState> {
         return(
         <div className="Home" id="Home">
             <header>
-                <span className="logo">LOGO</span>
+                <img className="logo" src={logo} alt="Logo" />
+                <h1>番茄闹钟</h1>
                 <Dropdown overlay={menu}>
-                    <span>
+                    <span className="userInfo">
                         {this.state.user && this.state.user.account}
                         <Icon type="down" style={{marginLeft: 8}} />
                     </span>

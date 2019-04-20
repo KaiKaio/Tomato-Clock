@@ -19,18 +19,11 @@ class Login extends React.Component<any, ILoginState> {
     }
   }
 
-  // 封装以下两个事件函数
   onChange = (key: keyof ILoginState, value:string) => {
     const newState = {}
     newState[key] = value
     this.setState(newState)
   }
-  // onChangeAccount = (e) => {
-  //   this.setState({account: e.target.value})
-  // }
-  // onChangePassword = (e) => {
-  //   this.setState({password: e.target.value})
-  // }
 
   submit = async () => {
     const  { account, password } = this.state;
@@ -56,7 +49,11 @@ class Login extends React.Component<any, ILoginState> {
 					value={account}
 					onChange={(e)=> this.onChange('account', e.target.value)}
 				/>
-				<Input.Password value={password} placeholder="请输入密码" onChange={(e)=> this.onChange('password', e.target.value)}/>
+        <Input.Password 
+          value={password}
+          placeholder="请输入密码"
+          onChange={(e)=> this.onChange('password', e.target.value)}/>
+          
 				<Button type="primary" className="loginButton" onClick={this.submit}>登录</Button>
         <p>如果您还没有账号，请点击<Link to="/signUp">注册</Link></p>
       </div>

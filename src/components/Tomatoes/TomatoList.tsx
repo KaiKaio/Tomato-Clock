@@ -1,5 +1,6 @@
 import * as React from 'react';
 import {format} from 'date-fns'
+import { Empty } from 'antd';
 import './TomatoList.scss'
 
 interface ITomatoListProps {
@@ -44,7 +45,7 @@ class TomatoList extends React.Component<ITomatoListProps> {
         })
         return (
             <div className="TomatoList" id="TomatoList">
-                {list}
+                {this.props.finishedTomatoes.length === undefined? <Empty /> : list}
             </div>
         )  
     }

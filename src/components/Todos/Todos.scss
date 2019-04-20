@@ -7,5 +7,14 @@
     background: #fff;
     >.todoLists{
         margin-top: 16px;
+        border-top: 1px solid #ddd;
+        padding: 16px;
+        >.ant-collapse{
+            border: 0;
+            background: #fff;
+            .ant-collapse-content-box {
+                padding: 0px;
+            }
+        }
     }
 }
