@@ -28,16 +28,29 @@ class Statistics extends React.Component<IStatisticsProps> {
 	public render() {
 		return (
 			<div className="Statistics" id="Statistics">
-				<ul>
-					<li>统计</li>
-					<li>目标</li>
-					<li>番茄历史</li>
+				<ul className="graph">
 					<li>
-						任务历史
-						累计完成{this.finishedTodos.length}个任务
-						<Polygon data={this.dailyTodos} totalFinishedCount={this.finishedTodos.length}/>
+						<div className="desc">
+							<span className="title">统计</span>
+						</div>
+					</li>
+					<li>
+						<div className="desc">
+							<span className="title">番茄历史</span>
+						</div>
+					</li>
+					<li>
+						<div className="desc">
+							<span className="title">任务历史</span>
+							<span className="subtitle">累计完成任务</span>
+							<span className="quantity">{this.finishedTodos.length}</span>
+						</div>
+						<Polygon
+							data={this.dailyTodos}
+							totalFinishedCount={this.finishedTodos.length} />
 					</li>
 				</ul>
+
 				<TodoHistory/>
 			</div>
 		);

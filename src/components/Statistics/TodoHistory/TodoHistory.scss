@@ -1,4 +1,8 @@
-#TodoHistory{
+.todoHistory-wrapper {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 16px;
+  #TodoHistory{
   .dailyTodos{
     padding: 16px;
     border: 1px solid #DDD;
@@ -27,4 +31,5 @@
       flex: 1;
     }
   }
-} 
+}
+}

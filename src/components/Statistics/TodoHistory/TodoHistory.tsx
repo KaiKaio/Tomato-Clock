@@ -61,18 +61,20 @@ class TodoHistory extends React.Component<ITodoHistoryProps> {
 			)
 		})
 		return (
-			<Tabs defaultActiveKey="1">
-				<TabPane tab="已完成任务" key="1">
-					<div className="TodoHistory" id="TodoHistory">
-						{finishedTodoList}
-					</div>
-				</TabPane>
-				<TabPane tab="已删除的任务" key="2">
-					<div className="TodoHistory" id="TodoHistory">
-						{deletedTodoList}
-					</div>
-				</TabPane>
-			</Tabs>
+			<div className="todoHistory-wrapper">
+				<Tabs defaultActiveKey="1">
+					<TabPane tab="已完成任务" key="1">
+						<div className="TodoHistory" id="TodoHistory">
+							{finishedTodoList}
+						</div>
+					</TabPane>
+					<TabPane tab="已删除的任务" key="2">
+						<div className="TodoHistory" id="TodoHistory">
+							{deletedTodoList}
+						</div>
+					</TabPane>
+				</Tabs>
+			</div>
 		);
 	}
 }

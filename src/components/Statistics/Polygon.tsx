@@ -26,17 +26,24 @@ class Polygon extends React.Component<IPolygonProps> {
 				finishedY = y
 				return `${x},${y}`
 			})
-			return ['0,60',...pointArr,`240,${finishedY}`,'240,60'].join(' ')
+			return ['0,60',...pointArr,`240,${finishedY}`,'320,60'].join(' ')
 		}else{
-			return "0,60 240,60"
+			return "0,60 310,60"
 		}
 	}
 
 	public render() {
 		return (
-			<div className="Polygon" id="Polygon">
-				<svg>
-					<polygon fill="rgba(215,78,78,0.1)" stroke="rgba(215,78,78,0.5)" strokeWidth="1" points={this.point()}/>
+			<div className="polygon" id="Polygon">
+				<svg 
+					width="100%"
+					height="60"
+					preserveAspectRatio="none">
+					<polygon
+						fill="rgba(215,78,78,0.1)"
+						stroke="rgba(215,78,78,0.5)"
+						strokeWidth="1"
+						points={this.point()}/>
 				</svg>
 			</div>
 		);
